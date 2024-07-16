@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="search" type="text" placeholder="Enter the password">
+    <button id="checkButton">Submit</button>
+    <span id="result"></span>
+
+    <script>
+        document.getElementById("checkButton").addEventListener("click", function() {
+            const search = document.getElementById("search");
+            const res = document.getElementById("result");
+            const oldPassword = "1234%6789";
+            const value = search.value;
+
+            if (value === oldPassword) {
+                res.textContent = "Password is correct";
+                res.style.color = "green";
+            } else {
+                res.textContent = "Password is incorrect";
+                res.style.color = "red";
+            }
+        });
+    </script>    
+</body>
+</html>

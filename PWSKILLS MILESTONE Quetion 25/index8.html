@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move the Image</title>
+    <style>
+        #image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <img id="image" src="your-image-url" alt="Image">
+    <script>
+        const image = document.getElementById('image');
+        let x = 0;
+        let y = 0;
+
+        document.addEventListener('keydown', (event) => {
+            switch (event.keyCode) {
+                case 37: // Left arrow
+                    x -= 10;
+                    break;
+                case 38: // Up arrow
+                    y -= 10;
+                    break;
+                case 39: // Right arrow
+                    x += 10;
+                    break;
+                case 40: // Down arrow
+                    y += 10;
+                    break;
+            }
+            image.style.top = `${y}px`;
+            image.style.left = `${x}px`;
+        });
+    </script>
+</body>
+</html>

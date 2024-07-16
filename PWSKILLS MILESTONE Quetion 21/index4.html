@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul id="todo-list"></ul>
+        <input type="text" id="input-todo" placeholder="Add Your Next Todo">
+        <button id="add-todo">Add Todo</button>
+    </div>
+
+    <script>
+        const list = document.getElementById("todo-list")
+        const input = document.getElementById('input-todo')
+        const button = document.getElementById('add-todo')
+
+        button.addEventListener('click',()=>{
+            const todo = input.value.trim();
+            if(!todo!==''){
+                const listItem = document.createElement('li')
+                listItem.innerText = todo;
+                list.appendChild(listItem);
+                input.value='';
+            }
+
+            
+        })
+    </script>
+</body>
+</html>

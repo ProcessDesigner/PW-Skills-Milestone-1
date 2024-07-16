@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        #error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form id="login-form">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email"><br><br>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password"><br><br>
+            <input id="submit" type="submit" value="Login">
+            <p id="error-message"></p>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById("login-form");
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+        const submitButton = document.getElementById("submit");
+        const errorMessage = document.getElementById('error-message');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const email = emailInput.value;
+            const password = passwordInput.value;
+
+            if (!email.includes('@')) {
+                displayError('Invalid email address');
+                return;
+            }
+
+            if (password.length < 8) {
+                displayError('Password must be at least 8 characters long');
+                return;
+            }
+
+            displaySuccess('Valid email and password');
+        });
+
+        function displayError(message) {
+            errorMessage.style.color = 'ed';
+            errorMessage.textContent = message;
+        }
+
+        function displaySuccess(message) {
+            errorMessage.style.color = 'green';
+            errorMessage.textContent = message;
+        }
+    </script>
+</body>
+</html>

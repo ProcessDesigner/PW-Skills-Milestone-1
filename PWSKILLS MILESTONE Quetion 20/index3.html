@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h2>What you'll learn</h2>
+        <ol id="what-youll-learn"></ol>
+        <button id="add-button">Add item</button>
+        <script>
+            const listItemArray = [
+                "Learn HTML and CSS",
+                "Understand JavaScript fundamentals",
+                "Build interactive web pages",
+                "Master responsive web design",
+                "Create dynamic user interfaces"
+            ];
+            const olElement = document.getElementById("what-youll-learn");
+            const addButton = document.getElementById("add-button");
+
+            let currentIndex = 0;
+
+            addButton.addEventListener("click", () => {
+            if (currentIndex < listItemArray.length) {
+                const listItemElement = document.createElement("li");
+                listItemElement.textContent = listItemArray[currentIndex];
+                olElement.appendChild(listItemElement);
+                currentIndex++;
+            } else {
+                const messageElement = document.createElement("p");
+                messageElement.textContent = "All items have been added!";
+                olElement.appendChild(messageElement);
+            }
+            });
+        </script>
+    </div>
+</body>
+</html>

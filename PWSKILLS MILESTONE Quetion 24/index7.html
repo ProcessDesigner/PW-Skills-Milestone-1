@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Highlighting</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <p id="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+    <script>
+        const paragraph = document.getElementById('paragraph');
+        const words = paragraph.textContent.split(' ');
+
+        words.forEach((word) => {
+            if (word.length > 8) {
+                const highlightedWord = `<span class="highlight">${word}</span>`;
+                paragraph.innerHTML = paragraph.innerHTML.replace(word, highlightedWord);
+            }
+        });
+    </script>
+</body>
+</html>
